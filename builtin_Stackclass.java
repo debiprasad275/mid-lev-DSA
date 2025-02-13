@@ -1,7 +1,7 @@
 import java.util.*;
 //In single thread environment we use ArrayDeque instead of stack class
 //cause Stack needs threads
-// aslo both the class have all the functioality like push,peekand pop in java collections
+// aslo both the class have all the functionality like push,peekand pop in java collections
 
 
 public class builtin_Stackclass{
