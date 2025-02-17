@@ -13,29 +13,48 @@ public class balances_bracket_stack {
     }
 }
 
+
+static boolean matching(char a,char b) {
+    return ((a == '(' && b == ')' ) ||  
+            (a == '{' && b == '}')  ||  
+               ( a == '[' && b == ']' )) ;
+}
+
+
 static boolean isbalance(String s){
     ArrayDeque<Character> a = new ArrayDeque<Character>();
 
     for(int i = 0; i < s.length(); i++){
 
-        if(s.charAt(i) == '{' || s.charAt(i) == '[' || s.charAt(i) == ')'){
+        if(s.charAt(i) == '{' || s.charAt(i) == '[' || s.charAt(i) == '('){
             a.push(s.charAt(i));
                     }
         else{
 
-            if (!a.isEmpty() && 
-            ((a.peek() == '(' && s.charAt(i) == ')') ||
-             (a.peek() == '{' && s.charAt(i) == '}') ||
-             (a.peek() == '[' && s.charAt(i) == ']'))) {
-            a.pop(); 
+            if(a.isEmpty() == true ){
+                return false;
+            }
+            else if(matching(a.peek(),s.charAt(i)) == false){
+                return false;
+            }
+            else{
+                a.pop();
+            }
+            
+
+
+            //method-2
+            // if (!a.isEmpty() && 
+            // ((a.peek() == '(' && s.charAt(i) == ')') ||
+            //  (a.peek() == '{' && s.charAt(i) == '}') ||
+            //  (a.peek() == '[' && s.charAt(i) == ']'))) {
+            // a.pop(); 
         }
-        else{
-            return false;
-        }
+        
     }
     
 
-}  
+ 
 return (a.isEmpty() == true);
 }
 }
